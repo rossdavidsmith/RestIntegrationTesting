@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Example.Clients;
 using Microsoft.Owin.Testing;
 using Owin;
 using Xunit;
@@ -18,10 +19,12 @@ namespace Example.WebApi.IntegrationTests
             using (var testServer = CreateTestServer())
             {
                 var httpClient = new HttpClient(testServer.Handler);
+                var underTest = new ValueServiceClient(httpClient, testServer.BaseAddress);
 
                 var expectedValues = new[] { "value1", "value2" };
 
                 // [act]
+                await underTest.GetValuesAsync();
                 var response = await httpClient.GetAsync(testServer.BaseAddress + "/" + "api/values/");
 
                 // [assert]

@@ -91,6 +91,10 @@
     <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Example.Clients\Example.Clients.csproj">
+      <Project>{D232F1BB-E6D4-4D01-8CBC-466A87442115}</Project>
+      <Name>Example.Clients</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Example.WebApi\Example.WebApi.csproj">
       <Project>{A7F4867F-4EB6-4ED4-A619-C6E276D3BD9F}</Project>
       <Name>Example.WebApi</Name>
